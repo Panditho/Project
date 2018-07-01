@@ -1,6 +1,6 @@
 <?php @session_start();
 include "./config/database.php";
-include 'component/com-kamar.php';
+include('component/com-kamar.php');
 ?>
 
 
@@ -78,7 +78,7 @@ include 'component/com-kamar.php';
 							</div>
 							<div class="panel-footer">
 								Rp <?php echo number_format($kamar['harga_malam']); ?>
-									<a href="?module=kamar/room-detail<?php echo $kamar['id_kamar']; ?>" class="btn btn-default">Check</a>
+								<a href="?module=room-detail&kamar=<?php echo $kamar['id_kamar']; ?>" class="btn btn-default">Check</a>
 							</div>
 						</div>
 					</div>
@@ -86,55 +86,54 @@ include 'component/com-kamar.php';
 			</div>
 		</div>
 	</div>
-</div>
 
-<div class="col-md-4">
-	<div class="panel panel-default" style="margin-top: 10px; width: 400px; margin-left:  -59px; border-radius: 0px;">
-		<div class="panel-heading" style="border-radius: 0px;"><h4 style="margin-left:120px">
-			RESERVATION
-		</div>
-		<div class="panel-body">
-			<form class="form-horizontal">
-				<div class="form-group" style="width: 300px;">
-					<label for="date" class="col-sm-2 control-label" >Check In</label>
-					<div class="col-sm-10">
-						<div class="input-group date" data-provide="datepicker" style="margin-left: 30px;" >
-							<input type="text" class="form-control" placeholder="Check In">
-							<div class="input-group-addon">
-								<span class="glyphicon glyphicon-calendar"></span>
+	<div class="col-md-4">
+		<div class="panel panel-default" style="margin-top: 10px; width: 400px; margin-left:  -59px; border-radius: 0px;">
+			<div class="panel-heading" style="border-radius: 0px;"><h4 style="margin-left:120px">
+				RESERVATION
+			</div>
+			<div class="panel-body">
+				<form class="form-horizontal">
+					<div class="form-group" style="width: 300px;">
+						<label for="date" class="col-sm-2 control-label" >Check In</label>
+						<div class="col-sm-10">
+							<div class="input-group date" data-provide="datepicker" style="margin-left: 30px;" >
+								<input type="text" class="form-control" placeholder="Check In">
+								<div class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="form-group" style="width: 300px;">
-					<label for="date" class="col-sm-2 control-label" >Check Out</label>
-					<div class="col-sm-10">
-						<div class="input-group date" data-provide="datepicker" style="margin-left: 30px;">
-							<input type="text" class="form-control" placeholder="Check Out">
-							<div class="input-group-addon">
-								<span class="glyphicon glyphicon-calendar"></span>
+					<div class="form-group" style="width: 300px;">
+						<label for="date" class="col-sm-2 control-label" >Check Out</label>
+						<div class="col-sm-10">
+							<div class="input-group date" data-provide="datepicker" style="margin-left: 30px;">
+								<input type="text" class="form-control" placeholder="Check Out">
+								<div class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="form-group" style="width: 300px;">
-					<label for="room" class="col-sm-2 control-label">Room</label>
-					<div class="col-sm-10">
-						<select class="form-control" style="margin-left: 30px; border-radius: 0px;">\
-							<option>------PILIH------</option>
-							<?php foreach ($kamar_tipe as $kamar_tipe) { ?>
-								<option value="<?php echo $kamar_tipe['id_kamar_tipe']; ?>"><?php echo $kamar_tipe['nama_kamar_tipe']; ?></option>
-							<?php } ?>
-						</select>
+					<div class="form-group" style="width: 300px;">
+						<label for="room" class="col-sm-2 control-label">Room</label>
+						<div class="col-sm-10">
+							<select class="form-control" style="margin-left: 30px; border-radius: 0px;">\
+								<option>------PILIH------</option>
+								<?php foreach ($kamar_tipe as $kamar_tipe) { ?>
+									<option value="<?php echo $kamar_tipe['id_kamar_tipe']; ?>"><?php echo $kamar_tipe['nama_kamar_tipe']; ?></option>
+								<?php } ?>
+							</select>
+						</div>
 					</div>
-				</div>
-					<button type="button" id="loading" data-loading-text="Checking..." class="btn btn-default hvr-underline-reveal" autocomplete="off" style="margin-left: 80px;">Check Availability</button>
-			</form>
+						<button type="button" id="loading" data-loading-text="Checking..." class="btn btn-default hvr-underline-reveal" autocomplete="off" style="margin-left: 80px;">Check Availability</button>
+				</form>
+			</div>
 		</div>
 	</div>
-</div>
 </div>
 
 <!-- ===================== J S ============================================ -->
@@ -142,12 +141,10 @@ include 'component/com-kamar.php';
 <script type="text/javascript" src="./res/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="./res/js/bootstrap-datepicker.js"></script>
 <script type="text/javascript">
-		  		$( '#loading' ).on( 'click' , function()
-		  		{
-		  			$( this ).button( 'loading' ).delay();
-		  		});
-
-		  	</script>
+	$( '#loading' ).on( 'click' , function() {
+		$( this ).button( 'loading' ).delay();
+	});
+</script>
 </body>
 </html>
 
