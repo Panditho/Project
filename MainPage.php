@@ -65,40 +65,24 @@ include 'component/com-kamar.php';
 	<div class="col-md-8">
 		<div class="panel panel-default container " style="margin-top: 10px; width: 750px; border-radius: 0px; margin-left: 90px">
 			<div class="panel-body">
-				<div class="col-md-4">
-					<?php foreach ($kamar as $kamar) { ?>
-					<div class="panel panel-default hvr-overline-reveal">
-						<div class="panel-body">
-							<div class="autofit">
-								<img src="./res/img/pic3.jpg" alt="..." class="img-thumbnail hvr-grow">
+				<?php foreach ($kamar as $kamar) { ?>
+					<div class="col-md-4">
+						<div class="panel panel-default hvr-overline-reveal">
+							<div class="panel-body">
+								<div class="autofit">
+									<img src="./res/img/pic3.jpg" alt="..." class="img-thumbnail hvr-grow">
+								</div>
+							</div>
+							<div class="panel-footer" style="border-radius: 0px;">
+								<?php echo $kamar['nama_kamar_tipe']; ?>
+							</div>
+							<div class="panel-footer">
+								Rp <?php echo number_format($kamar['harga_malam']); ?>
+									<a href="?module=kamar/room-detail<?php echo $kamar['id_kamar']; ?>" class="btn btn-default">Check</a>
 							</div>
 						</div>
-						<div class="panel-footer" style="border-radius: 0px;">
-							<?php echo $kamar['nama_kamar_tipe']; ?>
-						</div>
-						<div class="panel-footer">
-							Rp <?php echo number_format($kamar['harga_malam']); ?>
-							 <a href="?module=kamar/room-detail<?php echo $kamar['id_kamar']; ?>" class="btn btn-default">Check</a>
-						</div>
-				</div>
-			</div>
-			</div>
+					</div>
 				<?php } ?>
-			
-			<div class="col-md-4">
-					<div class="panel panel-default hvr-overline-reveal">
-						<div class="panel-body">
-							<div class="autofit">
-								<img src="./res/img/pic3.jpg" alt="..." class="img-thumbnail hvr-grow">
-							</div>
-						</div>
-						<div class="panel-footer" style="border-radius: 0px;">
-							ROOM NAME
-						</div>
-						<div class="panel-footer">
-							RP. XXXX,- <button type="button" class="btn btn-default hvr-underline-reveal" ><a href="room-detail.php">Check</a></button>
-						</div>
-				</div>
 			</div>
 		</div>
 	</div>
